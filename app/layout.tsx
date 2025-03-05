@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import { Comforter } from "next/font/google";
 import "./globals.css";
 
-import { AntdRegistry } from '@ant-design/nextjs-registry';
-
-const comforter = Comforter({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,22 +8,14 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-  modal
+  children
 }: Readonly<{
   children: React.ReactNode;
-  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body
-        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        className={comforter.className}
-      >
-        <AntdRegistry>
-          {children}
-          {modal}
-        </AntdRegistry>
+      <body>
+          <main>{children}</main>
       </body>
     </html>
   );
